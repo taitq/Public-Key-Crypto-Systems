@@ -49,15 +49,15 @@ public class EC_ELGamal {
 
     // Ma hoa Koblitz thong diep gui di thanh 1 diem tren duong cong
     public static Point KoblitzEnc(PrimeCurve P, BigInteger m) {
-       /* Integer h = P.getH();
+        Integer h = P.getH();
         BigInteger x = m.multiply(BigInteger.valueOf(h)); // x = m*h
         for (int i = 0; i < h; i++) {
             Point p = P.getPoint(x);
             if (p.isValid()) return p;
             x = x.add(BigInteger.ONE);
         }
-        return Point.INVALID;*/
-        return P.getPoint(m);
+        return Point.INVALID;
+        //return P.getPoint(m);
     }
 
     // giai ma Koblitz tu 1 diem tren duong cong sang thong diep

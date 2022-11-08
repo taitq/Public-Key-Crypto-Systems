@@ -40,7 +40,8 @@ public class Encode {
         // s1 là string cần mã hóa
       /*  System.out.print("Nhập bản rõ : ");
         String s1 = scanner.next();
-*/
+*/      String t = scanner.next();
+        System.out.println(stringToId(t));
         // x là số nguyên cần được mã hóa được convert từ s1
         System.out.print("Nhap x = ");
         String s1 = scanner.next();

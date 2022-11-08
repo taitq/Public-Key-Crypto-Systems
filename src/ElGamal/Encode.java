@@ -55,10 +55,10 @@ public class Encode {
      * @return the smallest prime root of n.
      */
     public static BigInteger findPrimitiveRoot(BigInteger p) {
-        if (!checkPrime(p)) {
+       /* if (!checkPrime(p)) {
             System.out.println("p is not a prime number. Enter again.");
             return BigInteger.valueOf(-1);
-        }
+        }*/
 
         HashSet<BigInteger> setPrimeFactor = new HashSet<>();
         BigInteger phi = p.add(BigInteger.valueOf(-1));
@@ -68,7 +68,6 @@ public class Encode {
             for (BigInteger k : setPrimeFactor) {
                 // check ( i^(phi/p_i) = 1 [p] ) every i if yes check = true and i is not prime root of p.
                 if (i.modPow(phi.divide(k), p).equals(BigInteger.ONE)) {
-                    System.out.println(i);
                     check = true;
                     break;
                 }
@@ -87,7 +86,7 @@ public class Encode {
         // p is a prime number
         BigInteger p = new BigInteger(P, 10);
         // alpha is the smallest primitive root of p
-        BigInteger alpha = BigInteger.TWO;//findPrimitiveRoot(p);
+        BigInteger alpha = findPrimitiveRoot(p);
         System.out.println("A prime root number of n is alpha = " + alpha);
         System.out.print("Enter private key a = ");
         String A = scanner.nextLine();
@@ -96,7 +95,8 @@ public class Encode {
         System.out.println("Public key belta = " + belta);
         System.out.print("Enter plaintext x = ");
         String X = scanner.nextLine();
-        BigInteger x = new BigInteger(X);
+        BigInteger x = RSA.Encode.stringToId(X);
+        System.out.println(x);// 17837782261913368429 413431564738954 phamkhacdat
         System.out.print("Enter a random integer number k = ");
         String K = scanner.nextLine();
         BigInteger k = new BigInteger(K);
